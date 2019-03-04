@@ -50,7 +50,7 @@ model.fit(train_images, train_labels, epochs=10)
 
 # save the model
 # model.save('fashion_mnist.h5')
-tfjs.converters.save_keras_model(model, 'tfjs/fashion_mnist_tfjs.json')
+tfjs.converters.save_keras_model(model, 'tfjs/fashion_mnist_tfjs')
 
 # evaluate(after training) and see how the trained model works
 test_loss, test_acc = model.evaluate(test_images, test_labels)
