@@ -19,7 +19,7 @@ print(len(train_images),train_images.shape)
 print(train_images[0])
 
 index = np.random.randint(1,60000)
-plt.imsave('sample-{}.jpg'.format(index),train_images[index])
+plt.imsave('sample-{}.png'.format(index),train_images[index])
 imgplot = plt.imshow(train_images[index])
 plt.show()
 
