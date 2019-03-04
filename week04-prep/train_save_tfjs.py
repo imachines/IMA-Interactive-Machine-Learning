@@ -7,19 +7,19 @@ import tensorflowjs as tfjs
 
 ###################### data set ######################
 
-# Fashion Minst dataset 28*28 pixels
+# Fashion MNIST dataset 28*28 pixels
 # Load the data, here is simple since it's built in keras
 fashion_mnist = keras.datasets.fashion_mnist
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
 # some basic idea on the dataset
 print(len(train_labels), train_labels.shape, train_labels[0])
-print(len(train_images), train_images.shape,train_images[0])
+print(len(train_images), train_images.shape, train_images[0])
 
-class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-# Pause and Check! 
+# Pause and Check!
 
 
 train_images = train_images / 255.0
@@ -27,7 +27,7 @@ test_images = test_images / 255.0
 
 ###################### Model ######################
 
-# model structure 
+# model structure
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),
         # now: model.output_shape == (None, 784)
@@ -41,12 +41,12 @@ model = keras.Sequential([
 ###################### Train ######################
 
 # define training parameters
-model.compile(optimizer='adam', 
+model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
 # train
-model.fit(train_images, train_labels, epochs=10) 
+model.fit(train_images, train_labels, epochs=10)
 
 # save the model
 # model.save('fashion_mnist.h5')
