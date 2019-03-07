@@ -4,7 +4,7 @@ import os
 
 batch_size = 32
 num_classes = 10
-epochs = 3
+epochs = 100
 num_predictions = 20
 save_dir = os.path.join(os.getcwd(), 'saved_models')
 model_name = 'keras_cifar10_trained_model.h5'
@@ -19,6 +19,10 @@ print(x_test.shape[0], 'test samples')
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
 
 layers = keras.layers
 model = keras.Sequential([
@@ -45,11 +49,6 @@ opt = keras.optimizers.RMSprop(lr=0.0001, decay=1e-6)
 model.compile(loss='categorical_crossentropy',
               optimizer=opt,
               metrics=['accuracy'])
-
-x_train = x_train.astype('float32')
-x_test = x_test.astype('float32')
-x_train /= 255
-x_test /= 255
 
 model.fit(x_train, y_train,
             batch_size=batch_size,
