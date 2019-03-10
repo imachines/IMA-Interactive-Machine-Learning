@@ -4,8 +4,8 @@ print(tf.__version__)
 from tensorflow import keras
 import numpy as np
 
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+# import matplotlib.pyplot as plt
+# import matplotlib.image as mpimg
 
 
 # load data
@@ -48,9 +48,12 @@ model.compile(optimizer='adam',
 # how many rounds we want the model be trained
 model.fit(train_images,train_labels,epochs=5)
 model.save("fashion_mnist.h5")
+print("-----------------------------------------------model saved as fashion_mnist.h5-----------------------------------------------")
+
 # evaluate
 test_loss,test_acc = model.evaluate(test_images,test_labels)
 
+"""
 predictions = model.predict(test_images)
 random_image = np.random.randint(0,10000)
 prediction = predictions[random_image]
@@ -61,7 +64,7 @@ print("The model says: this is a {}".format(prediction_label))
 imgplot = plt.imshow(test_images[random_image])
 plt.show()
 
-
+"""
 
 
 
