@@ -5,7 +5,6 @@ import numpy as np
 from time import time
 from tensorflow.python.keras.callbacks import TensorBoard
 
-
 # load data
 # fashion_mnist dataset
 
