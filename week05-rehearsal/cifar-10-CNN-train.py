@@ -5,9 +5,9 @@ import os
 from time import time
 from tensorflow.python.keras.callbacks import TensorBoard
 
-batch_size = 32
+batch_size = 2048
 num_classes = 10
-epochs = 50
+epochs = 100
 
 # The data, split between train and test sets:
 (x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
