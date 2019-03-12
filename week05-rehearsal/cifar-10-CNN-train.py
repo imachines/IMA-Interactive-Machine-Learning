@@ -56,7 +56,8 @@ model.fit(x_train, y_train,
             batch_size=batch_size,
             epochs=epochs,
             validation_data=(x_test, y_test),
-            shuffle=True)
+            shuffle=True,
+            callbacks=[tensorboard])
 
 # Save model and weights
 save_dir = os.path.join(os.getcwd(), 'saved_models')
@@ -72,4 +73,3 @@ print('Saved trained model at %s ' % model_path)
 scores = model.evaluate(x_test, y_test, verbose=1)
 print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
-
