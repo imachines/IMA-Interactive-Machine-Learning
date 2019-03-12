@@ -1,3 +1,3 @@
 # Week 05: Backward Propagation
-## [Some notes on optimizer](optimizer.md)
-## [Avaiable loss built in keras](loss.md)
+## [Some notes on optimizer](optimizers.md)
+## [Avaiable loss built in keras](losses.md)
