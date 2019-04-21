@@ -18,13 +18,6 @@ function draw(){
     cvae.generate(cvae.labels[index], function(err, res){
         image(res.image, 0, 0, width, height);
     });
-
     text(cvae.labels[index],20,70);
   }
-}
-
-function mouseClicked() {
-  cvae.generate(cvae.labels[index], function(err, res){
-      image(res.image, 0, 0, width, height);
-  });
 }
