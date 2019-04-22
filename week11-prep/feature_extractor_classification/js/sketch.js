@@ -1,4 +1,4 @@
-// aven le zhou: https://aven.cc
+// aven le zhou: https://www.aven.cc
 // 2019.04
 
 
@@ -7,33 +7,33 @@ let video, tiger, chicken, stick;
 let label, ready2predict = false;
 let labels = [];
 
-let opt = {   
-  version: 1,
-  alpha: 1.0,
-  topk: 3,
-  learningRate: 0.0001,
-  hiddenUnits: 100,
-  epochs: 20,
-  numClasses: 3,
-  batchSize: 0.4
-}
+// let opt = {   
+//   version: 1,
+//   alpha: 1.0,
+//   topk: 3,
+//   learningRate: 0.0001,
+//   hiddenUnits: 100,
+//   epochs: 20,
+//   numClasses: 3,
+//   batchSize: 0.4
+// }
 
 function setup() {
   // put setup code here
-  createCanvas(800,600);
   video = createCapture(VIDEO);
   // video.hide();
+  createCanvas(800,600);
 
   featureExtractor = ml5.featureExtractor('MobileNet',function(){
     console.log("model is loaded...");
   });
-  featureExtractor.numClasses = 4;
+  featureExtractor.numClasses = 3;
 
   classifier = featureExtractor.classification(video, function(){
     console.log("video is ready...");
   });
 
-  labels = ['老虎','棒子','鸡','none'];
+  labels = ['Rock','Paper','Scissor','None'];
 
 }
 

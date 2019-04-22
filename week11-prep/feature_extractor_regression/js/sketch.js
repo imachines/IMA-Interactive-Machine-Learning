@@ -1,9 +1,8 @@
-// aven le zhou: https://aven.cc
+// aven le zhou: https://www.aven.cc
 // 2019.04
 
 
-let featureExtractor, regressor;
-let video, tiger, chicken, stick;
+let featureExtractor, regressor, video;
 let val, ready2predict = false;
 let labels = [];
 
