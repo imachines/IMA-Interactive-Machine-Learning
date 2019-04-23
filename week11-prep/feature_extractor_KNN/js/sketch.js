@@ -1,4 +1,4 @@
-// aven le zhou: https://aven.cc
+// aven le zhou: https://www.aven.cc
 // 2019.04
 
 let featureExtractor, features, knnClassifier;
@@ -31,10 +31,10 @@ function draw() {
       if(err){
         console.log(err);
       }else{
-        label = result;
+        label = result.label;
         console.log(label);
       }
-    });  
+    });
   }
 }
 
@@ -42,36 +42,21 @@ function keyPressed(){
   if(key === 'p' || key === 'P'){
     ready2predict = !ready2predict;
   }
-  //If not input is provided, the video element provided 
+  //If not input is provided, the video element provided
   //in the method-type will be used.
   if(key === 'q' || key === 'Q'){
     const features = featureExtractor.infer(video);
-    knnClassifier.addExample(features, labels[0],function(){ 
-      console.log('added one ' + labels[0] + ' image');
-    });
+    knnClassifier.addExample(features, labels[0]);
   }
   if(key === 'w' || key === 'W'){
     const features = featureExtractor.infer(video);
-    knnClassifier.addExample(features, labels[1],function(){ 
-      console.log('added one ' + labels[1] + ' image');
-    });
+    knnClassifier.addExample(features, labels[1]);
   }
   if(key === 'e' || key === 'E'){
     const features = featureExtractor.infer(video);
-    knnClassifier.addExample(features, labels[2],function(){ 
-      console.log('added one ' + labels[2] + ' image');
-    });  
+    knnClassifier.addExample(features, labels[2]);
   }
   if(key === 'r' || key === 'R'){
-    knnClassifier.addExample(features, labels[3],function(){ 
-      console.log('added one ' + labels[3] + ' image');
-    });  
-  }
-
-  if(key === 't' || key === 'T'){
-    knnClassifier.train(function(lossValue){
-      console.log("loss value is decreasing-- "+ lossValue);
-    });
-    console.log("model is trained...");
+    knnClassifier.addExample(features, labels[3]);
   }
 }
