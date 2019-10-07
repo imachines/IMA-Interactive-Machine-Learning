@@ -1,10 +1,22 @@
-import tensorflow as tf
-from tensorflow import keras
-import numpy as np
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore",category=FutureWarning)
+    import tensorflow as tf
+    from tensorflow import keras
+    import numpy as np
+    from tensorflow.keras.preprocessing.text import Tokenizer
+
+# import tensorflow as tf
+# from tensorflow import keras
+# import numpy as np
 import os
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+
+tf.logging.set_verbosity(tf.logging.ERROR)
+tf.logging.set_verbosity(tf.logging.get_verbosity())
+
 
 batch_size = 32
 num_classes = 10

@@ -1,9 +1,18 @@
-import tensorflow as tf
-from tensorflow import keras
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore",category=FutureWarning)
+    import tensorflow as tf
+    from tensorflow import keras
+    import numpy as np
+    from tensorflow.keras.preprocessing.text import Tokenizer
+
 import os
 
 from time import time
 from tensorflow.python.keras.callbacks import TensorBoard
+
+tf.logging.set_verbosity(tf.logging.ERROR)
+tf.logging.set_verbosity(tf.logging.get_verbosity())
 
 batch_size = 2048
 num_classes = 10
