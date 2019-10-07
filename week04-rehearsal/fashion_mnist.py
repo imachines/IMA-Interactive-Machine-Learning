@@ -16,7 +16,8 @@ fashion_mnist = keras.datasets.fashion_mnist
 # see the size of the dataset
 print(len(train_labels),train_labels.shape, train_labels[0])
 print(len(train_images),train_images.shape)
-print(train_images[0])
+# print(train_images[0])
+print(np.array_str(train_images[0], max_line_width=200))
 
 index = np.random.randint(1,60000)
 plt.imsave('sample-{}.png'.format(index),train_images[index])
@@ -63,18 +64,19 @@ model.compile(optimizer='adam',
 # training parameters
 model.fit(train_images,train_labels,epochs=5)
 
-model.save('fashion_mnist.h5') # file extension
 
 # evaluate the result
 test_loss,test_acc = model.evaluate(test_images,test_labels)
 print("Hey, this is how good the model performs {}".format(test_acc))
 
+# model.save('fashion_mnist.h5') # file extension
 
 ######################### application #########################
 ###############################################################
 predictions = model.predict(test_images)
 random_image = np.random.randint(1,10000)
 prediction = predictions[random_image]
+
 # this is the 10 Probabilities for the first test image
 print("10 Probabilities will be {}".format(prediction))
 prediction_label = np.argmax(prediction)
